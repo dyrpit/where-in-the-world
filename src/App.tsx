@@ -1,26 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { ThemeProvider } from 'styled-components';
+
+import { useToggleTheme } from './hooks/useToggleTheme';
+
+import ContentWrapper from './components/ContentWrapper/ContentWrapper';
+import DetailsView from './views/DetailsView/DetailsView';
+import HomeView from './views/HomeView/HomeView';
+import Nav from './components/Nav/Nav';
+
+import GlobalStyles from './theme/GlobalStyles';
+import { lightTheme, darkTheme } from './theme/theme';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const [theme, toggleTheme] = useToggleTheme();
+	return (
+		<>
+			<ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
+				<GlobalStyles />
+				<Nav theme={theme} toggleTheme={toggleTheme} />
+				<ContentWrapper>
+					<Router>
+						<Switch>
+							<Route exact path='/' component={HomeView} />
+							<Route path='/:id' component={DetailsView} />
+						</Switch>
+					</Router>
+				</ContentWrapper>
+			</ThemeProvider>
+		</>
+	);
 }
 
 export default App;
