@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const StyledItemWrapper = styled.div`
 	border-radius: 4px;
 	width: 90%;
+	min-width: 300px;
 	max-width: 300px;
 	margin: 0 20px 40px 20px;
 	background-color: ${({ theme }) => theme.color.elements};

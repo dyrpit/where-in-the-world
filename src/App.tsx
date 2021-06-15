@@ -19,7 +19,7 @@ function App() {
 				<GlobalStyles />
 				<Nav theme={theme} toggleTheme={toggleTheme} />
 				<ContentWrapper>
-					<Router>
+					<Router basename={process.env.PUBLIC_URL}>
 						<Switch>
 							<Route exact path='/' component={HomeView} />
 							<Route path='/:id' component={DetailsView} />

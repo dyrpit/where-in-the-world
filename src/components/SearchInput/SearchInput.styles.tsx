@@ -8,6 +8,11 @@ export const StyledSearchInputWrapper = styled.div`
 	color: ${({ theme }) => theme.color.input};
 	background-color: ${({ theme }) => theme.color.elements};
 	border-radius: 4px;
+	margin-bottom: 30px;
+
+	@media (min-width: 600px) {
+		flex-basis: 40%;
+	}
 `;
 
 export const StyledFilterBtn = styled.button`

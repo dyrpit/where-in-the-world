@@ -1,6 +1,7 @@
 import { FC } from 'react';
 
 import { getPopulationNumberWithComas } from '../../utils/getPopulationNumberWithComas';
+import { ICountry } from '../../views/HomeView/HomeView';
 
 import {
 	StyledItemWrapper,
@@ -10,27 +11,11 @@ import {
 	StyledItemFieldName,
 	StyledItemTitle,
 } from './CountryItem.styles';
-
 interface IProps {
-	country: {
-		name: string;
-		flag: string;
-		population: number;
-		region: string;
-		subregion: string;
-		capital: string;
-		nativName: string;
-		topLevelDomain: string[];
-		currencies: object[];
-		languages: object[];
-	};
+	country: ICountry;
 }
 
 const CountryItem: FC<IProps> = ({ country }) => {
-	if (country.name === 'Poland') {
-		console.log(country);
-	}
-
 	return (
 		<StyledItemWrapper>
 			<StyleItemImg src={country.flag} alt='' />

@@ -1,14 +1,33 @@
 import { FC, useEffect, useState } from 'react';
 import axios from 'axios';
 
+import { useSearch } from '../../hooks/useSearch';
+
 import CountryItem from '../../components/CountryItem/CountryItem';
 import Filter from '../../components/Filter/Filter';
 
+//TODO3: move fetching to separate hook?
+export interface ICountry {
+	name: string;
+	flag: string;
+	population: number;
+	region: string;
+	subregion: string;
+	capital: string;
+	nativName: string;
+	topLevelDomain: string[];
+	currencies: object[];
+	languages: object[];
+}
+
+export type CountryData = ICountry[] | [];
+
 const HomeView: FC = () => {
-	const [countries, setCountries] = useState<[]>([]);
-	const [searchResults, setSearchResults] = useState([]);
+	const [countries, setCountries] = useState<CountryData>([]);
 	const [isLoading, setIsLoading] = useState<boolean>(false);
 	const [error, setError] = useState<string>('');
+
+	const { filteredCountries, handleInputChange, handleFilterChange } = useSearch(countries);
 
 	useEffect(() => {
 		const fetchCities = async () => {
@@ -19,7 +38,6 @@ const HomeView: FC = () => {
 
 				if (data) {
 					setCountries(data);
-					setSearchResults(data);
 					setIsLoading(false);
 					setError('');
 				}
@@ -36,14 +54,12 @@ const HomeView: FC = () => {
 
 	return (
 		<div>
-			<Filter countries={countries} setSearchResults={setSearchResults} />
+			<Filter handleInputChange={handleInputChange} handleFilterChange={handleFilterChange} />
 			{error && <p>{error}</p>}
 			{!isLoading && (
 				<div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around' }}>
-					{searchResults.map((country: any) => (
-						<CountryItem country={country} key={country.name}>
-							{country.name}
-						</CountryItem>
+					{filteredCountries.map((country: ICountry) => (
+						<CountryItem country={country} key={country.name} />
 					))}
 				</div>
 			)}

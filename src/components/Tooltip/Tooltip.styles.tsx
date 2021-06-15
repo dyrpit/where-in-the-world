@@ -20,4 +20,5 @@ export const StyledTooltipList = styled.ul<IProps>`
 
 export const StyledTooltipItem = styled.li`
 	padding: 15px 20px;
+	cursor: pointer;
 `;
