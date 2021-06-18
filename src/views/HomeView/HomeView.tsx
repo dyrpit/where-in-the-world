@@ -8,12 +8,12 @@ import Filter from '../../components/Filter/Filter';
 
 //TODO3: move fetching to separate hook?
 
-interface ICurrency {
+export interface ICurrency {
 	name: string;
 	symbol: string;
 }
 
-interface ILanguage {
+export interface ILanguage {
 	name: string;
 	nativeName: string;
 }

@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 
 export const StyledItemWrapper = styled.div`
 	border-radius: 4px;
@@ -21,12 +20,11 @@ export const StyledItemContent = styled.div`
 	box-shadow: ${({ theme }) => theme.boxShadow};
 `;
 
-export const StyledItemTitle = styled(Link)`
+export const StyledItemTitle = styled.p`
 	display: block;
 	margin-bottom: 20px;
 	font-size: ${({ theme }) => theme.fontSize.m};
 	font-weight: ${({ theme }) => theme.fontWeight.bold};
-	text-decoration: none;
 `;
 
 export const StyledItemField = styled.p`

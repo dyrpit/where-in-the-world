@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { Link } from 'react-router-dom';
 
 import { getPopulationNumberWithComas } from '../../utils/getPopulationNumberWithComas';
 import { ICountry } from '../../views/HomeView/HomeView';
@@ -17,25 +18,26 @@ interface IProps {
 
 const CountryItem: FC<IProps> = ({ country }) => {
 	return (
-		//TODO7: make all items same size, large country names destroys layout
-		<StyledItemWrapper>
-			<StyleItemImg src={country.flag} alt='' />
-			<StyledItemContent>
-				<StyledItemTitle to={country.name.toLowerCase()}>{country.name}</StyledItemTitle>
-				<StyledItemField>
-					<StyledItemFieldName>Population: </StyledItemFieldName>
-					{getPopulationNumberWithComas(country.population)}
-				</StyledItemField>
-				<StyledItemField>
-					<StyledItemFieldName>Region: </StyledItemFieldName>
-					{country.region}
-				</StyledItemField>
-				<StyledItemField>
-					<StyledItemFieldName>Capital: </StyledItemFieldName>
-					{country.capital}
-				</StyledItemField>
-			</StyledItemContent>
-		</StyledItemWrapper>
+		<Link to={country.name.toLowerCase()}>
+			<StyledItemWrapper>
+				<StyleItemImg src={country.flag} alt='' />
+				<StyledItemContent>
+					<StyledItemTitle>{country.name}</StyledItemTitle>
+					<StyledItemField>
+						<StyledItemFieldName>Population: </StyledItemFieldName>
+						{getPopulationNumberWithComas(country.population)}
+					</StyledItemField>
+					<StyledItemField>
+						<StyledItemFieldName>Region: </StyledItemFieldName>
+						{country.region}
+					</StyledItemField>
+					<StyledItemField>
+						<StyledItemFieldName>Capital: </StyledItemFieldName>
+						{country.capital}
+					</StyledItemField>
+				</StyledItemContent>
+			</StyledItemWrapper>
+		</Link>
 	);
 };
 

@@ -2,6 +2,7 @@ import { FC } from 'react';
 import { getPopulationNumberWithComas } from '../../utils/getPopulationNumberWithComas';
 import { ICountry } from '../../views/HomeView/HomeView';
 import BorderCountry from '../BorderCountryItem/BorderCountryItem';
+import CountryDetailsField from '../CountryDetailsField/CountryDetailsField';
 
 import {
 	StyledBorderCountryWrapper,
@@ -11,9 +12,6 @@ import {
 	StyledCountryDetails,
 	StyledCountryDetailsSection,
 	StyledCountryName,
-	StyledCountryField,
-	StyledCountryFieldName,
-	StyledCountryFieldNameValue,
 	StyledTitle,
 } from './CountryDetails.styles';
 
@@ -32,64 +30,35 @@ const CountryDetails: FC<IProps> = ({ country }) => {
 			<StyledCountryDetails>
 				<StyledCountryName>{country.name}</StyledCountryName>
 				<StyledCountryDetailsSection>
-					<StyledCountryField>
-						<StyledCountryFieldName>Native Name: </StyledCountryFieldName>
-						<StyledCountryFieldNameValue>{country.name}</StyledCountryFieldNameValue>
-					</StyledCountryField>
-					<StyledCountryField>
-						<StyledCountryFieldName>Population: </StyledCountryFieldName>
-						<StyledCountryFieldNameValue>
-							{getPopulationNumberWithComas(country.population)}
-						</StyledCountryFieldNameValue>
-					</StyledCountryField>
-					<StyledCountryField>
-						<StyledCountryFieldName>Region: </StyledCountryFieldName>
-						<StyledCountryFieldNameValue>{country.region}</StyledCountryFieldNameValue>
-					</StyledCountryField>
-					<StyledCountryField>
-						<StyledCountryFieldName>Sub Region: </StyledCountryFieldName>
-						<StyledCountryFieldNameValue>{country.subregion}</StyledCountryFieldNameValue>
-					</StyledCountryField>
-					<StyledCountryField>
-						<StyledCountryFieldName>Capital: </StyledCountryFieldName>
-						<StyledCountryFieldNameValue>{country.capital}</StyledCountryFieldNameValue>
-					</StyledCountryField>
+					<CountryDetailsField fieldName='Native name:' fieldValue={country.name} />
+					<CountryDetailsField
+						fieldName='Population:'
+						fieldValue={getPopulationNumberWithComas(country.population)}
+					/>
+					<CountryDetailsField fieldName='Region:' fieldValue={country.region} />
+					<CountryDetailsField fieldName='Sub Region:' fieldValue={country.subregion} />
+					<CountryDetailsField fieldName='Capital:' fieldValue={country.capital} />
 				</StyledCountryDetailsSection>
 				<StyledCountryDetailsSection>
-					<StyledCountryField>
-						<StyledCountryFieldName>Top Level Domain: </StyledCountryFieldName>
-						{country.topLevelDomain.map((domain) => (
-							<StyledCountryFieldNameValue key={domain}>{domain}</StyledCountryFieldNameValue>
-						))}
-					</StyledCountryField>
-					<StyledCountryField>
-						<StyledCountryFieldName>Currencies: </StyledCountryFieldName>
-						{country.currencies.map((currency) => (
-							<StyledCountryFieldNameValue>{currency.name}</StyledCountryFieldNameValue>
-						))}
-					</StyledCountryField>
-					<StyledCountryField>
-						<StyledCountryFieldName>Languages: </StyledCountryFieldName>
-						{country.languages.map((language) => (
-							<StyledCountryFieldNameValue>{language.name}</StyledCountryFieldNameValue>
-						))}
-					</StyledCountryField>
+					<CountryDetailsField fieldName='Top Level Domain:' fieldValue={country.topLevelDomain} />
+					<CountryDetailsField fieldName='Currencies:' fieldValue={country.currencies} />
+					<CountryDetailsField fieldName='Languages:' fieldValue={country.languages} />
 				</StyledCountryDetailsSection>
+				<div>
+					<StyledTitle>Border Countries:</StyledTitle>
+					<StyledBorderCountryWrapper>
+						{country.borders.length ? (
+							<>
+								{country.borders.map((border) => (
+									<BorderCountry>{border}</BorderCountry>
+								))}
+							</>
+						) : (
+							<StyledBorderCountry to='#'>No border countries</StyledBorderCountry>
+						)}
+					</StyledBorderCountryWrapper>
+				</div>
 			</StyledCountryDetails>
-			<div>
-				<StyledTitle>Border Countries:</StyledTitle>
-				<StyledBorderCountryWrapper>
-					{country.borders.length ? (
-						<>
-							{country.borders.map((border) => (
-								<BorderCountry>{border}</BorderCountry>
-							))}
-						</>
-					) : (
-						<StyledBorderCountry>No border countries</StyledBorderCountry>
-					)}
-				</StyledBorderCountryWrapper>
-			</div>
 		</StyledDetailsWrapper>
 	);
 };

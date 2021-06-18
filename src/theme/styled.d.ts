@@ -26,11 +26,11 @@ declare module 'styled-components' {
 			sl: string;
 		};
 
-		// devices: {
-		// 	mobileM: string;
-		// 	tablet: string;
-		// 	laptop: string;
-		// 	desktop: string;
-		// };
+		devices: {
+			mobileM: string;
+			tablet: string;
+			laptop: string;
+			desktop: string;
+		};
 	}
 }

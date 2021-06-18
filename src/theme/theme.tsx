@@ -15,6 +15,12 @@ const defaultTheme = {
 		regular: 600,
 		bold: 800,
 	},
+	devices: {
+		mobileM: `(min-width: 375px)`,
+		tablet: `(min-width: 768px)`,
+		laptop: `(min-width: 1024px)`,
+		desktop: `(min-width: 1440px)`,
+	},
 };
 
 export const lightTheme: DefaultTheme = {
@@ -28,15 +34,7 @@ export const lightTheme: DefaultTheme = {
 	boxShadow: defaultTheme.boxShadow,
 	fontSize: defaultTheme.fontSize,
 	fontWeight: defaultTheme.fontWeight,
-
-	// devices: {
-	// 	mobileM: `(min-width: 375px)`,
-	// 	tablet: `(min-width: 768px)`,
-	// 	laptop: `(min-width: 1024px)`,
-	// 	desktop: `(min-width: 1440px)`,
-	// },
-
-	// boxShadow: '',
+	devices: defaultTheme.devices,
 };
 
 export const darkTheme: DefaultTheme = {
@@ -50,4 +48,5 @@ export const darkTheme: DefaultTheme = {
 	boxShadow: defaultTheme.boxShadow,
 	fontSize: defaultTheme.fontSize,
 	fontWeight: defaultTheme.fontWeight,
+	devices: defaultTheme.devices,
 };

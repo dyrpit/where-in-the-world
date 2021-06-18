@@ -34,7 +34,7 @@ const BorderCountry: FC = ({ children }) => {
 		fetchBorderCountry();
 	}, [children]);
 
-	return <StyledBorderCountry>{country}</StyledBorderCountry>;
+	return <StyledBorderCountry to={country}>{country}</StyledBorderCountry>;
 };
 
 export default BorderCountry;

@@ -15,6 +15,10 @@ body{
   color: ${({ theme }) => theme.color.text};
 }
 
+a {
+  text-decoration: none;
+}
+
 button, input, ::placeholder, a {
     font-family: inherit;
     color: inherit;
