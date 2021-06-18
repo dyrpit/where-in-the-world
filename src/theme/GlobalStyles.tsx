@@ -15,12 +15,12 @@ body{
   color: ${({ theme }) => theme.color.text};
 }
 
-button, input, ::placeholder {
+button, input, ::placeholder, a {
     font-family: inherit;
     color: inherit;
   }
   
-  p, h1, h2, label, span {
+  a, p, h1, h2, label, span {
     line-height: 1.6;
     
   

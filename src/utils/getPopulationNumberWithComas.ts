@@ -1,4 +1,4 @@
-export const getPopulationNumberWithComas = (value: number): string => {
+export const getPopulationNumberWithComas = (value: number = 0): string => {
 	const valueArr = value.toString().split('').reverse();
 	const lenght = valueArr.length;
 

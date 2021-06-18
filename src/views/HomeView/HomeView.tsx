@@ -7,6 +7,16 @@ import CountryItem from '../../components/CountryItem/CountryItem';
 import Filter from '../../components/Filter/Filter';
 
 //TODO3: move fetching to separate hook?
+
+interface ICurrency {
+	name: string;
+	symbol: string;
+}
+
+interface ILanguage {
+	name: string;
+	nativeName: string;
+}
 export interface ICountry {
 	name: string;
 	flag: string;
@@ -16,8 +26,9 @@ export interface ICountry {
 	capital: string;
 	nativName: string;
 	topLevelDomain: string[];
-	currencies: object[];
-	languages: object[];
+	currencies: ICurrency[];
+	languages: ILanguage[];
+	borders: string[];
 }
 
 export type CountryData = ICountry[] | [];

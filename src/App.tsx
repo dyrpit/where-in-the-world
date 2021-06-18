@@ -22,7 +22,7 @@ function App() {
 					<Router basename={process.env.PUBLIC_URL}>
 						<Switch>
 							<Route exact path='/' component={HomeView} />
-							<Route path='/:id' component={DetailsView} />
+							<Route path='/:name' component={DetailsView} />
 						</Switch>
 					</Router>
 				</ContentWrapper>

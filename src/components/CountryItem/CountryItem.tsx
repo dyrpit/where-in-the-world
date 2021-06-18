@@ -17,10 +17,11 @@ interface IProps {
 
 const CountryItem: FC<IProps> = ({ country }) => {
 	return (
+		//TODO7: make all items same size, large country names destroys layout
 		<StyledItemWrapper>
 			<StyleItemImg src={country.flag} alt='' />
 			<StyledItemContent>
-				<StyledItemTitle>{country.name}</StyledItemTitle>
+				<StyledItemTitle to={country.name.toLowerCase()}>{country.name}</StyledItemTitle>
 				<StyledItemField>
 					<StyledItemFieldName>Population: </StyledItemFieldName>
 					{getPopulationNumberWithComas(country.population)}

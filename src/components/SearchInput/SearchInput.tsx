@@ -12,6 +12,7 @@ const SearchInput: FC<IProps> = ({ handleInputChange }) => {
 
 	return (
 		<StyledSearchInputWrapper>
+			{/* //TODO6: remove button */}
 			<StyledFilterBtn>
 				<i className='fas fa-search'></i>
 			</StyledFilterBtn>

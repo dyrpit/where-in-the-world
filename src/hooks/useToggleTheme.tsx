@@ -10,6 +10,7 @@ export enum THEME {
 export const useToggleTheme = (): [string, UpdateType] => {
 	const [theme, setTheme] = useState('light');
 
+	//TODO8: store user theme preference in local storage
 	const toggleTheme: UpdateType = () => {
 		if (theme === THEME.LIGHT) {
 			setTheme(THEME.DARK);
