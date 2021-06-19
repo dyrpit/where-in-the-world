@@ -11,6 +11,7 @@ interface IProps {
 
 const FilterBy: FC<IProps> = ({ handleFilterChange }) => {
 	const [isOpen, setIsOpen] = useState<boolean>(false);
+	const [currentRegion, setCurrentRegion] = useState<string>('');
 
 	const toggleTooltipOpen = (): void => {
 		setIsOpen((prev) => !prev);
@@ -22,17 +23,18 @@ const FilterBy: FC<IProps> = ({ handleFilterChange }) => {
 		<i className='fas fa-angle-down'></i>
 	);
 
-	//TODO4: change name of btn Text while filtering, add also ability to remove filter
 	return (
 		<StyledFilterByWrapper>
 			<StyledFilterByBtn onClick={toggleTooltipOpen}>
-				<StyledBtnText>Filter by Region</StyledBtnText>
+				<StyledBtnText>{currentRegion || 'Filter by Region'}</StyledBtnText>
 				{btnIcon}
 			</StyledFilterByBtn>
 			<Tooltip
 				isOpen={isOpen}
 				handleFilterChange={handleFilterChange}
 				toggleTooltipOpen={toggleTooltipOpen}
+				currentRegion={currentRegion}
+				setCurrentRegion={setCurrentRegion}
 			/>
 		</StyledFilterByWrapper>
 	);
