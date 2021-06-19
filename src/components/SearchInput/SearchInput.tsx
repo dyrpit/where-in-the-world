@@ -5,21 +5,27 @@ import { StyledFilterBtn, StyledFilterInput, StyledSearchInputWrapper } from './
 
 interface IProps {
 	handleInputChange: UpdateInput;
+	handleResetInput: () => void;
 }
 
-const SearchInput: FC<IProps> = ({ handleInputChange }) => {
+const SearchInput: FC<IProps> = ({ handleInputChange, handleResetInput }) => {
 	const [value, setValue] = useState<string>('');
+
+	const searchIcon = value ? <i className='fas fa-times'></i> : <i className='fas fa-search'></i>;
+
+	const handleReset = () => {
+		if (value) {
+			handleResetInput();
+			setValue('');
+		}
+	};
 
 	return (
 		<StyledSearchInputWrapper>
-			{/* //TODO6: remove button */}
-			<StyledFilterBtn>
-				<i className='fas fa-search'></i>
-			</StyledFilterBtn>
+			<StyledFilterBtn onClick={handleReset}>{searchIcon}</StyledFilterBtn>
 			<StyledFilterInput
 				type='text'
 				onChange={(e) => {
-					//TODO5: send down from hook value or leave it like it is?
 					const { value } = e.target;
 
 					setValue(value);

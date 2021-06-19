@@ -9,12 +9,13 @@ import { StyledFilterWrapper } from './Filter.styles';
 interface IProps {
 	handleInputChange: UpdateInput;
 	handleFilterChange: UpdateFilter;
+	handleResetInput: () => void;
 }
 
-const Filter: FC<IProps> = ({ handleInputChange, handleFilterChange }) => {
+const Filter: FC<IProps> = ({ handleInputChange, handleFilterChange, handleResetInput }) => {
 	return (
 		<StyledFilterWrapper>
-			<SearchInput handleInputChange={handleInputChange} />
+			<SearchInput handleInputChange={handleInputChange} handleResetInput={handleResetInput} />
 			<FilterBy handleFilterChange={handleFilterChange} />
 		</StyledFilterWrapper>
 	);

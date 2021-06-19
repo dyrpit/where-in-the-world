@@ -38,7 +38,10 @@ const HomeView: FC = () => {
 	const [isLoading, setIsLoading] = useState<boolean>(false);
 	const [error, setError] = useState<string>('');
 
-	const { filteredCountries, handleInputChange, handleFilterChange } = useSearch(countries);
+	const { filteredCountries, handleInputChange, handleFilterChange, handleResetInput } = useSearch(
+		countries,
+		300
+	);
 
 	useEffect(() => {
 		const fetchCities = async () => {
@@ -65,7 +68,11 @@ const HomeView: FC = () => {
 
 	return (
 		<div>
-			<Filter handleInputChange={handleInputChange} handleFilterChange={handleFilterChange} />
+			<Filter
+				handleInputChange={handleInputChange}
+				handleFilterChange={handleFilterChange}
+				handleResetInput={handleResetInput}
+			/>
 			{error && <p>{error}</p>}
 			{!isLoading && (
 				<div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around' }}>

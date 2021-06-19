@@ -50,7 +50,7 @@ const CountryDetails: FC<IProps> = ({ country }) => {
 						{country.borders.length ? (
 							<>
 								{country.borders.map((border) => (
-									<BorderCountry>{border}</BorderCountry>
+									<BorderCountry key={border}>{border}</BorderCountry>
 								))}
 							</>
 						) : (

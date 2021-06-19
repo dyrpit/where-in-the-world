@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export type UpdateType = () => void;
 
@@ -8,16 +8,26 @@ export enum THEME {
 }
 
 export const useToggleTheme = (): [string, UpdateType] => {
-	const [theme, setTheme] = useState('light');
+	const [theme, setTheme] = useState<string>(THEME.LIGHT);
 
-	//TODO8: store user theme preference in local storage
+	const setUserTheme = (theme: string): void => {
+		window.localStorage.setItem('theme', theme);
+		setTheme(theme);
+	};
+
 	const toggleTheme: UpdateType = () => {
 		if (theme === THEME.LIGHT) {
-			setTheme(THEME.DARK);
+			setUserTheme(THEME.DARK);
 		} else {
-			setTheme(THEME.LIGHT);
+			setUserTheme(THEME.LIGHT);
 		}
 	};
+
+	useEffect(() => {
+		const userTheme: string = window.localStorage.getItem('theme') || THEME.LIGHT;
+
+		setUserTheme(userTheme);
+	}, []);
 
 	return [theme, toggleTheme];
 };

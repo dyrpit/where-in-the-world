@@ -13,7 +13,7 @@ export type UpdateFilter = (region: string) => void;
 
 const defaultSearchValues: ISearchValues = { countryName: '', region: '' };
 
-export const useSearch = (data: CountryData) => {
+export const useSearch = (data: CountryData, delay: number = 500) => {
 	const [searchValues, setSearchValues] = useState<ISearchValues>(defaultSearchValues);
 	const [filteredCountries, setFilteredCountries] = useState<CountryData>([]);
 
@@ -27,12 +27,19 @@ export const useSearch = (data: CountryData) => {
 		setSearchValues((prev) => ({ ...prev, region }));
 	};
 
+	const handleResetInput = () => {
+		setSearchValues((prev) => ({ ...prev, countryName: '' }));
+	};
+
 	useEffect(() => {
-		//TODO1: Add debounce
-		const filterResult = CountriesService.getCountriesByFilter(data, searchValues);
+		const timeoutId = setTimeout(() => {
+			const filterResult = CountriesService.getCountriesByFilter(data, searchValues);
 
-		setFilteredCountries(filterResult);
-	}, [data, searchValues]);
+			setFilteredCountries(filterResult);
+		}, delay);
 
-	return { filteredCountries, handleInputChange, handleFilterChange };
+		return () => clearTimeout(timeoutId);
+	}, [data, searchValues, delay]);
+
+	return { filteredCountries, handleInputChange, handleFilterChange, handleResetInput };
 };
