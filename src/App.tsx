@@ -13,6 +13,7 @@ import { lightTheme, darkTheme } from './theme/theme';
 
 function App() {
 	const [theme, toggleTheme] = useToggleTheme();
+	//TODO: Add 404 view
 	return (
 		<>
 			<ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>

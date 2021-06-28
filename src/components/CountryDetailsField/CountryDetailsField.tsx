@@ -24,7 +24,7 @@ const CountryDetailsField: FC<IProps> = ({ fieldName, fieldValue }) => {
 	return (
 		<StyledCountryField>
 			<StyledCountryFieldName>{fieldName} </StyledCountryFieldName>
-			<StyledCountryFieldNameValue>{displayedValue}</StyledCountryFieldNameValue>
+			{displayedValue}
 		</StyledCountryField>
 	);
 };
