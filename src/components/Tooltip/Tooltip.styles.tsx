@@ -16,6 +16,7 @@ export const StyledTooltipList = styled.ul<IProps>`
 	border-radius: 4px;
 	box-shadow: ${({ theme }) => theme.boxShadow};
 	transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+	z-index: 500;
 `;
 
 export const StyledTooltipItem = styled.li`

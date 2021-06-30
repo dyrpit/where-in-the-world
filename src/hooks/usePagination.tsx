@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
-import { CountryData } from '../views/HomeView/HomeView';
 
-export const usePagination = (countries: CountryData) => {
+export type UpdatePaginationType = (numOfItemsPerPage: number) => void;
+
+export const usePagination = (countriesLength: number) => {
 	const [itemsPerPage, setItemsPerPage] = useState<number>(10);
 	const [currentPage, setCurrentPage] = useState<number>(1);
-	const [pages, setPages] = useState<number>(Math.ceil(countries.length / itemsPerPage));
+	const [pages, setPages] = useState<number>(Math.ceil(countriesLength / itemsPerPage));
 
 	const handleNextPage = () => {
 		if (currentPage + 1 > pages) {
@@ -22,16 +23,17 @@ export const usePagination = (countries: CountryData) => {
 		setCurrentPage(currentPage - 1);
 	};
 
-	const handleItemsPerPage = (numOfItemsPerPage: number) => {
+	const handleItemsPerPage: UpdatePaginationType = (numOfItemsPerPage) => {
 		if (numOfItemsPerPage === itemsPerPage) return;
 		setItemsPerPage(numOfItemsPerPage);
 	};
 
 	useEffect(() => {
-		if (countries) {
-			setPages(Math.ceil(countries.length / itemsPerPage));
+		if (countriesLength) {
+			setPages(Math.ceil(countriesLength / itemsPerPage));
+			setCurrentPage(1);
 		}
-	}, [itemsPerPage, countries]);
+	}, [itemsPerPage, countriesLength]);
 
 	return { itemsPerPage, currentPage, pages, handleNextPage, handlePrevPage, handleItemsPerPage };
 };

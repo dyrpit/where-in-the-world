@@ -17,13 +17,13 @@ export const useSearch = (data: CountryData, delay: number = 500) => {
 	const [searchValues, setSearchValues] = useState<ISearchValues>(defaultSearchValues);
 	const [filteredCountries, setFilteredCountries] = useState<CountryData>([]);
 
-	const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+	const handleInputChange: UpdateInput = (e) => {
 		const { value } = e.target;
 
 		setSearchValues((prev) => ({ ...prev, countryName: value }));
 	};
 
-	const handleFilterChange = (region: string): void => {
+	const handleFilterChange: UpdateFilter = (region) => {
 		setSearchValues((prev) => ({ ...prev, region }));
 	};
 
