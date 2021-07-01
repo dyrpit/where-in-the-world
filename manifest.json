@@ -1,25 +1,23 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
-  "icons": [
-    {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
-    },
-    {
-      "src": "logo192.png",
-      "type": "image/png",
-      "sizes": "192x192"
-    },
-    {
-      "src": "logo512.png",
-      "type": "image/png",
-      "sizes": "512x512"
-    }
-  ],
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+	"lang": "EN",
+	"short_name": "WitW?",
+	"name": "Where in the world?",
+	"description": "Application provide info about diffrent countries. Browse country and see details such as: currency, languages, border countries and more. Search specific country by name or filter them by region.",
+	"icons": [
+		{
+			"src": "world.ico",
+			"sizes": "32x32 24x24 16x16",
+			"type": "image/x-icon"
+		},
+		{
+			"src": "globe128.png",
+			"type": "image/png",
+			"sizes": "128x128"
+		}
+	],
+	"start_url": ".",
+	"display": "standalone",
+	"theme_color": "#202c37",
+	"background_color": "#ffffff",
+	"author": "Piotr Dyrda"
 }
