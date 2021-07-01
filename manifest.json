@@ -10,9 +10,20 @@
 			"type": "image/x-icon"
 		},
 		{
-			"src": "globe128.png",
+			"src": "globe144.png",
 			"type": "image/png",
-			"sizes": "128x128"
+			"sizes": "144x144"
+		},
+		{
+			"src": "globe512.png",
+			"type": "image/png",
+			"sizes": "512x512"
+		},
+		{
+			"src": "maskable_globe.png",
+			"type": "image/png",
+			"sizes": "512x512",
+			"purpose": "any maskable"
 		}
 	],
 	"start_url": ".",
