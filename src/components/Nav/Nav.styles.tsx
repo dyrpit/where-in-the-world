@@ -10,7 +10,7 @@ export const StyledNav = styled.nav`
 	background-color: ${({ theme }) => theme.color.elements};
 `;
 
-export const StyledNavTitle = styled.p`
+export const StyledNavTitle = styled.h1`
 	font-size: ${({ theme }) => theme.fontSize.m};
 	font-weight: ${({ theme }) => theme.fontWeight.bold};
 `;

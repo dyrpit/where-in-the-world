@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledWrapper = styled.div`
+export const StyledWrapper = styled.main`
 	padding: 20px;
 
 	@media ${({ theme }) => theme.devices.tablet} {

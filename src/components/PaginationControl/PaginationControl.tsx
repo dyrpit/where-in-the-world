@@ -49,7 +49,7 @@ const PaginationControl: FC<IProps> = ({
 		<PaginationWrapper>
 			<PaginationPagesDisplay>
 				<PaginationControlBtn onClick={handlePrevPage}>
-					<i className='fas fa-angle-left'></i>
+					<i className='fas fa-angle-left' arial-label='Previous countries'></i>
 				</PaginationControlBtn>
 				<PaginationPageItemDisplay>{currentPage > 1 ? '1' : currentPage}</PaginationPageItemDisplay>
 				{currentPage > 1 && currentPage < pages ? (
@@ -57,7 +57,7 @@ const PaginationControl: FC<IProps> = ({
 				) : null}
 				<PaginationPageItemDisplay>{pages}</PaginationPageItemDisplay>
 				<PaginationControlBtn onClick={handleNextPage}>
-					<i className='fas fa-angle-right'></i>
+					<i className='fas fa-angle-right' arial-label='Next countries'></i>
 				</PaginationControlBtn>
 			</PaginationPagesDisplay>
 			<PaginationTooltipWrapper>

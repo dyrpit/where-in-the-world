@@ -22,7 +22,9 @@ const SearchInput: FC<IProps> = ({ handleInputChange, handleResetInput }) => {
 
 	return (
 		<StyledSearchInputWrapper>
-			<StyledFilterBtn onClick={handleReset}>{searchIcon}</StyledFilterBtn>
+			<StyledFilterBtn onClick={handleReset} aria-label='Search button'>
+				{searchIcon}
+			</StyledFilterBtn>
 			<StyledFilterInput
 				type='text'
 				onChange={(e) => {
