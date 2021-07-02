@@ -10,10 +10,11 @@ import Nav from './components/Nav/Nav';
 
 import GlobalStyles from './theme/GlobalStyles';
 import { lightTheme, darkTheme } from './theme/theme';
+import PageNotFoundView from './views/PageNotFoundView/PageNotFoundView';
 
 function App() {
 	const [theme, toggleTheme] = useToggleTheme();
-	//TODO: Add 404 view
+	//TODO: extract fetch all countries to here using useFetch (to be wrtitten)
 	return (
 		<>
 			<ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
@@ -22,8 +23,10 @@ function App() {
 				<ContentWrapper>
 					<Router basename={process.env.PUBLIC_URL}>
 						<Switch>
-							<Route exact path='/' component={HomeView} />
-							<Route path='/:name' component={DetailsView} />
+							{/* <Route exact path='/' component={HomeView} /> */}
+							<Route exact path='/' render={() => <HomeView />} />
+							<Route path='/details/:name' component={DetailsView} />
+							<Route path='*' component={PageNotFoundView} />
 						</Switch>
 					</Router>
 				</ContentWrapper>

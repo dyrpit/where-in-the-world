@@ -16,7 +16,7 @@ const CountryDetailsField: FC<IProps> = ({ fieldName, fieldValue }) => {
 	const displayedValue = !Array.isArray(fieldValue)
 		? fieldValue
 		: fieldValue.map((value) => (
-				<StyledCountryFieldNameValue>
+				<StyledCountryFieldNameValue key={typeof value === 'string' ? value : value.name}>
 					{typeof value === 'string' ? value : value.name}
 				</StyledCountryFieldNameValue>
 		  ));

@@ -18,7 +18,7 @@ interface IProps {
 
 const CountryItem: FC<IProps> = ({ country }) => {
 	return (
-		<Link to={country.name.toLowerCase()}>
+		<Link to={`details/${country.name.toLowerCase()}`}>
 			<StyledItemWrapper>
 				<StyleItemImg src={country.flag} alt='' />
 				<StyledItemContent>
