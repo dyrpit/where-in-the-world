@@ -1,53 +1,41 @@
-import { FC, useEffect, useState } from 'react';
+import { FC } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
-import axios from 'axios';
-import { ICountry } from '../HomeView/HomeView';
+
+import { DETAILS_URL, useFetch } from '../../hooks/useFetch';
+
 import Button from '../../components/Button/Button';
 import CountryDetails from '../../components/CountryDetails/CountryDetails';
+import Spinner from '../../components/Spinner/Spinner';
 
 interface IParams {
 	name: string;
 }
 
 const DetailsView: FC = () => {
-	const [country, setCountry] = useState<ICountry | null>(null);
-	const [isLoading, setIsLoading] = useState<boolean>(false);
-	const [error, setError] = useState<string>('');
-
 	const { name } = useParams<IParams>();
 
 	const history = useHistory();
 
+	const URL = `${DETAILS_URL}${name}`;
+
+	const {
+		data: [country],
+		isLoading,
+		error,
+	} = useFetch(URL);
+
 	const handleGoBack = (): void => history.push('/');
 
-	useEffect(() => {
-		const fetchCity = async () => {
-			setIsLoading(true);
-
-			try {
-				const { data } = await axios.get(`https://restcountries.eu/rest/v2/name/${name}`);
-
-				if (data) {
-					const country: ICountry = data[0];
-					setCountry(country);
-					setIsLoading(false);
-					setError('');
-				}
-			} catch (e) {
-				setIsLoading(false);
-				setError(e.message);
-			}
-		};
-
-		fetchCity();
-	}, [name]);
-
 	return (
-		<div>
+		<>
 			<Button handleGoBack={handleGoBack} title='Back' />
 			{error}
-			{country && <CountryDetails country={country} />}
-		</div>
+			{isLoading ? (
+				<Spinner isLoading={isLoading} />
+			) : (
+				country && <CountryDetails country={country} />
+			)}
+		</>
 	);
 };
 
