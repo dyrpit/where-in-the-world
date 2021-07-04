@@ -1,9 +1,9 @@
 import { FC } from 'react';
 import { useHistory } from 'react-router-dom';
 
-import Button from '../../components/Button/Button';
-
 import PirateFlag from '../../images/pirate.svg';
+
+import Button from '../../components/Button/Button';
 
 import {
 	StyledPageNotFoundTitle,
