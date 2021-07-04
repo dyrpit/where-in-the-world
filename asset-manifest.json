@@ -1,22 +1,20 @@
 {
   "files": {
-    "main.css": "/where-in-the-world/static/css/main.6dea0f05.chunk.css",
-    "main.js": "/where-in-the-world/static/js/main.2b17bbae.chunk.js",
-    "main.js.map": "/where-in-the-world/static/js/main.2b17bbae.chunk.js.map",
+    "main.js": "/where-in-the-world/static/js/main.cf835287.chunk.js",
+    "main.js.map": "/where-in-the-world/static/js/main.cf835287.chunk.js.map",
     "runtime-main.js": "/where-in-the-world/static/js/runtime-main.4d07a102.js",
     "runtime-main.js.map": "/where-in-the-world/static/js/runtime-main.4d07a102.js.map",
-    "static/js/2.747f0073.chunk.js": "/where-in-the-world/static/js/2.747f0073.chunk.js",
-    "static/js/2.747f0073.chunk.js.map": "/where-in-the-world/static/js/2.747f0073.chunk.js.map",
+    "static/js/2.c88c638d.chunk.js": "/where-in-the-world/static/js/2.c88c638d.chunk.js",
+    "static/js/2.c88c638d.chunk.js.map": "/where-in-the-world/static/js/2.c88c638d.chunk.js.map",
     "index.html": "/where-in-the-world/index.html",
     "service-worker.js": "/where-in-the-world/service-worker.js",
     "service-worker.js.map": "/where-in-the-world/service-worker.js.map",
-    "static/css/main.6dea0f05.chunk.css.map": "/where-in-the-world/static/css/main.6dea0f05.chunk.css.map",
-    "static/js/2.747f0073.chunk.js.LICENSE.txt": "/where-in-the-world/static/js/2.747f0073.chunk.js.LICENSE.txt"
+    "static/js/2.c88c638d.chunk.js.LICENSE.txt": "/where-in-the-world/static/js/2.c88c638d.chunk.js.LICENSE.txt",
+    "static/media/pirate.91d3fd02.svg": "/where-in-the-world/static/media/pirate.91d3fd02.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.4d07a102.js",
-    "static/js/2.747f0073.chunk.js",
-    "static/css/main.6dea0f05.chunk.css",
-    "static/js/main.2b17bbae.chunk.js"
+    "static/js/2.c88c638d.chunk.js",
+    "static/js/main.cf835287.chunk.js"
   ]
 }
