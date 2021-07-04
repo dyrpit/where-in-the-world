@@ -4,6 +4,12 @@ interface IProps {
 	size: number;
 }
 
+export const StyledWrapper = styled.div`
+	display: flex;
+	flex-direction: column;
+	margin: 0 10px;
+`;
+
 export const StyledSpinnerWrapper = styled.div<IProps>`
 	width: ${({ size }) => `${size}px`};
 	height: ${({ size }) => `${size * 1.5}px`};
@@ -13,6 +19,5 @@ export const StyledSpinnerWrapper = styled.div<IProps>`
 `;
 
 export const StyledSpinnerText = styled.p`
-	font-size: ${({ theme }) => theme.fontSize.m};
 	text-align: center;
 `;

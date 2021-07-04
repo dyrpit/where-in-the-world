@@ -5,6 +5,7 @@ import { FetchType, ICountry } from '../../hooks/useFetch';
 import { usePagination } from '../../hooks/usePagination';
 
 import CountryItem from '../../components/CountryItem/CountryItem';
+import ErrorFallback from '../../components/ErrorFallback/ErrorFallback';
 import Filter from '../../components/Filter/Filter';
 import PaginationControl from '../../components/PaginationControl/PaginationControl';
 import Spinner from '../../components/Spinner/Spinner';
@@ -21,7 +22,7 @@ const HomeView: FC<FetchType> = ({ data, isLoading, error }) => {
 		usePagination(filteredCountries.length);
 
 	return (
-		<div>
+		<>
 			<Filter
 				handleInputChange={handleInputChange}
 				handleFilterChange={handleFilterChange}
@@ -37,9 +38,9 @@ const HomeView: FC<FetchType> = ({ data, isLoading, error }) => {
 				pages={pages}
 			/>
 
-			{error && <p>{error}</p>}
-
-			{isLoading ? (
+			{error ? (
+				<ErrorFallback errorMsg={error} />
+			) : isLoading ? (
 				<Spinner isLoading={isLoading} />
 			) : (
 				<StyledCountriesDisplayWrapper>
@@ -50,7 +51,7 @@ const HomeView: FC<FetchType> = ({ data, isLoading, error }) => {
 						))}
 				</StyledCountriesDisplayWrapper>
 			)}
-		</div>
+		</>
 	);
 };
 

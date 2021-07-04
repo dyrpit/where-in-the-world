@@ -1,6 +1,7 @@
 import { FC, useEffect, useState } from 'react';
 import axios from 'axios';
 
+import ErrorFallback from '../ErrorFallback/ErrorFallback';
 import Spinner from '../Spinner/Spinner';
 
 import { StyledBorderCountry } from './BorderCountryItem.styles';
@@ -41,8 +42,10 @@ const BorderCountryItem: FC<IProps> = ({ border }) => {
 
 	return (
 		<>
-			{isLoading ? (
-				<Spinner isLoading={isLoading} />
+			{error ? (
+				<ErrorFallback errorMsg={error} />
+			) : isLoading ? (
+				<Spinner isLoading={isLoading} size={40} />
 			) : (
 				<StyledBorderCountry to={borderCountry || '#'}>{country}</StyledBorderCountry>
 			)}

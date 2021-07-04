@@ -5,6 +5,7 @@ import { DETAILS_URL, useFetch } from '../../hooks/useFetch';
 
 import Button from '../../components/Button/Button';
 import CountryDetails from '../../components/CountryDetails/CountryDetails';
+import ErrorFallback from '../../components/ErrorFallback/ErrorFallback';
 import Spinner from '../../components/Spinner/Spinner';
 
 interface IParams {
@@ -29,8 +30,9 @@ const DetailsView: FC = () => {
 	return (
 		<>
 			<Button handleGoBack={handleGoBack} title='Back' />
-			{error}
-			{isLoading ? (
+			{error ? (
+				<ErrorFallback errorMsg={error} />
+			) : isLoading ? (
 				<Spinner isLoading={isLoading} />
 			) : (
 				country && <CountryDetails country={country} />
