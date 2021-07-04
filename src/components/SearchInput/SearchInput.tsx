@@ -1,4 +1,5 @@
 import { FC, useState } from 'react';
+
 import { UpdateInput } from '../../hooks/useSearch';
 
 import { StyledFilterBtn, StyledFilterInput, StyledSearchInputWrapper } from './SearchInput.styles';

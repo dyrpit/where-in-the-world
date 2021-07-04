@@ -1,5 +1,6 @@
 import { FC } from 'react';
-import { ICurrency, ILanguage } from '../../views/HomeView/HomeView';
+
+import { ICurrency, ILanguage } from '../../hooks/useFetch';
 
 import {
 	StyledCountryField,

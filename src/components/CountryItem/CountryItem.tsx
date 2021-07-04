@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { Link } from 'react-router-dom';
 
 import { getPopulationNumberWithComas } from '../../utils/getPopulationNumberWithComas';
-import { ICountry } from '../../views/HomeView/HomeView';
+import { ICountry } from '../../hooks/useFetch';
 
 import {
 	StyledItemWrapper,

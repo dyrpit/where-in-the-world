@@ -1,4 +1,5 @@
 import { Dispatch, FC, SetStateAction } from 'react';
+
 import { UpdateFilter } from '../../hooks/useSearch';
 
 import { StyledTooltipList, StyledTooltipItem } from './Tooltip.styles';

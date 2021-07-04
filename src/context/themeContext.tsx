@@ -1,4 +1,5 @@
 import { createContext, FC } from 'react';
+
 import { THEME, useToggleTheme, UpdateType } from '../hooks/useToggleTheme';
 
 interface ITheme {

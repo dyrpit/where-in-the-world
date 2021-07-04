@@ -1,4 +1,5 @@
 import { FC, useState } from 'react';
+
 import { UpdateFilter } from '../../hooks/useSearch';
 
 import Tooltip from '../Tooltip/Tooltip';

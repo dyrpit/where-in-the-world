@@ -1,4 +1,5 @@
 import { FC } from 'react';
+
 import { THEME, UpdateType } from '../../hooks/useToggleTheme';
 
 import { StyledNav, StyledNavTitle, StyledToggleThemeBtn } from './Nav.styles';

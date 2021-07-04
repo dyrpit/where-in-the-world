@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { CountryData } from '../views/HomeView/HomeView';
+
+import { CountryData } from './useFetch';
 
 import CountriesService from '../services/CountriesService';
 

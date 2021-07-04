@@ -1,4 +1,5 @@
 import { FC } from 'react';
+
 import { UpdateFilter, UpdateInput } from '../../hooks/useSearch';
 
 import FilterBy from '../FilterBy/FilterBy';

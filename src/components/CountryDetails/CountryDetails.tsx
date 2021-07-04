@@ -1,7 +1,9 @@
 import { FC } from 'react';
+
 import { getPopulationNumberWithComas } from '../../utils/getPopulationNumberWithComas';
-import { ICountry } from '../../views/HomeView/HomeView';
-import BorderCountry from '../BorderCountryItem/BorderCountryItem';
+import { ICountry } from '../../hooks/useFetch';
+
+import BorderCountryItem from '../BorderCountryItem/BorderCountryItem';
 import CountryDetailsField from '../CountryDetailsField/CountryDetailsField';
 
 import {
@@ -50,7 +52,7 @@ const CountryDetails: FC<IProps> = ({ country }) => {
 						{country.borders.length ? (
 							<>
 								{country.borders.map((border) => (
-									<BorderCountry key={border}>{border}</BorderCountry>
+									<BorderCountryItem key={border} border={border} />
 								))}
 							</>
 						) : (

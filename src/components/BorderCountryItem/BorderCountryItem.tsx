@@ -1,23 +1,28 @@
 import { FC, useEffect, useState } from 'react';
 import axios from 'axios';
 
+import Spinner from '../Spinner/Spinner';
+
 import { StyledBorderCountry } from './BorderCountryItem.styles';
 
-const BorderCountry: FC = ({ children }) => {
+interface IProps {
+	border: string;
+}
+
+const BorderCountryItem: FC<IProps> = ({ border }) => {
 	const [borderCountry, setBorderCountry] = useState<string>('');
 	const [isLoading, setIsLoading] = useState<boolean>(false);
 	const [error, setError] = useState<string>('');
 
 	const country = borderCountry ? borderCountry : 'No border country';
 
-	//TODO: add error and loading handle
 	useEffect(() => {
 		const fetchBorderCountry = async () => {
 			setIsLoading(true);
 
 			try {
 				const { data } = await axios.get(
-					`https://restcountries.eu/rest/v2/alpha/${children}?fields=name`
+					`https://restcountries.eu/rest/v2/alpha/${border}?fields=name`
 				);
 
 				if (data) {
@@ -32,9 +37,17 @@ const BorderCountry: FC = ({ children }) => {
 		};
 
 		fetchBorderCountry();
-	}, [children]);
+	}, [border]);
 
-	return <StyledBorderCountry to={country}>{country}</StyledBorderCountry>;
+	return (
+		<>
+			{isLoading ? (
+				<Spinner isLoading={isLoading} />
+			) : (
+				<StyledBorderCountry to={borderCountry || '#'}>{country}</StyledBorderCountry>
+			)}
+		</>
+	);
 };
 
-export default BorderCountry;
+export default BorderCountryItem;

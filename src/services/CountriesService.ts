@@ -1,4 +1,4 @@
-import { CountryData, ICountry } from '../views/HomeView/HomeView';
+import { CountryData, ICountry } from '../hooks/useFetch';
 
 export default class CountriesService {
 	static getCountriesByFilter(
