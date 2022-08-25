@@ -13,46 +13,46 @@ import Spinner from '../../components/Spinner/Spinner';
 import { StyledCountriesDisplayWrapper } from './HomeView.styles';
 
 const HomeView: FC<FetchType> = ({ data, isLoading, error }) => {
-	const { filteredCountries, handleInputChange, handleFilterChange, handleResetInput } = useSearch(
-		data,
-		300
-	);
+  const { filteredCountries, handleInputChange, handleFilterChange, handleResetInput } = useSearch(
+    data,
+    300
+  );
 
-	const { itemsPerPage, currentPage, pages, handleNextPage, handlePrevPage, handleItemsPerPage } =
-		usePagination(filteredCountries.length);
+  const { itemsPerPage, currentPage, pages, handleNextPage, handlePrevPage, handleItemsPerPage } =
+    usePagination(filteredCountries.length);
 
-	return (
-		<>
-			<Filter
-				handleInputChange={handleInputChange}
-				handleFilterChange={handleFilterChange}
-				handleResetInput={handleResetInput}
-			/>
+  return (
+    <>
+      <Filter
+        handleInputChange={handleInputChange}
+        handleFilterChange={handleFilterChange}
+        handleResetInput={handleResetInput}
+      />
 
-			<PaginationControl
-				currentPage={currentPage}
-				handleItemsPerPage={handleItemsPerPage}
-				handleNextPage={handleNextPage}
-				handlePrevPage={handlePrevPage}
-				itemsPerPage={itemsPerPage}
-				pages={pages}
-			/>
+      <PaginationControl
+        currentPage={currentPage}
+        handleItemsPerPage={handleItemsPerPage}
+        handleNextPage={handleNextPage}
+        handlePrevPage={handlePrevPage}
+        itemsPerPage={itemsPerPage}
+        pages={pages}
+      />
 
-			{error ? (
-				<ErrorFallback errorMsg={error} />
-			) : isLoading ? (
-				<Spinner isLoading={isLoading} />
-			) : (
-				<StyledCountriesDisplayWrapper>
-					{filteredCountries
-						.slice((currentPage - 1) * itemsPerPage, itemsPerPage * currentPage)
-						.map((country: ICountry) => (
-							<CountryItem country={country} key={country.name} />
-						))}
-				</StyledCountriesDisplayWrapper>
-			)}
-		</>
-	);
+      {error ? (
+        <ErrorFallback errorMsg={error} />
+      ) : isLoading ? (
+        <Spinner isLoading={isLoading} />
+      ) : (
+        <StyledCountriesDisplayWrapper>
+          {filteredCountries
+            .slice((currentPage - 1) * itemsPerPage, itemsPerPage * currentPage)
+            .map((country: ICountry) => (
+              <CountryItem country={country} key={country.name.common} />
+            ))}
+        </StyledCountriesDisplayWrapper>
+      )}
+    </>
+  );
 };
 
 export default HomeView;
